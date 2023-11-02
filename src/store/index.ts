@@ -21,7 +21,17 @@ export default createStore({
               email: newUser.email
           })
       }
-    }
+    },
+    loadStore() {
+      if(localStorage.getItem('store')) {
+          try {
+              this.replaceState(JSON.parse(localStorage.getItem("store")));
+          }
+          catch(e) {
+              console.log('Could not initialize store', e);
+          }
+      }
+  }
   },
   actions: {
   },
