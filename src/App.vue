@@ -28,3 +28,24 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+<script lang="ts">
+import "maz-ui/css/main.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "mdb-ui-kit/css/mdb.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import { mapGetters } from "vuex";
+
+export default {
+  name: "App",
+  components: {
+    // LocaleChanger,
+  },
+  data: () => ({
+    user: localStorage.getItem("user"),
+  }),
+  computed: {
+    ...mapGetters(["user"]),
+  },
+};
+</script>
