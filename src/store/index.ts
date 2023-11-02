@@ -13,6 +13,15 @@ export default createStore({
   }
   },
   mutations: {
+    addUser(state, newUser) {
+      if(newUser.id !== undefined && typeof newUser.name == 'string' && typeof newUser.email == 'string') {
+          state.users.push({
+              id: newUser.id,
+              name: newUser.name,
+              email: newUser.email
+          })
+      }
+    }
   },
   actions: {
   },
