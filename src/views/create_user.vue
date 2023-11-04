@@ -114,14 +114,14 @@ export default {
     data() {
         return {
             form: {
-                name: "ali",
-                mobile_no: "01284177867",
-                paid_amount: "100",
-                un_paid_amount: "200",
-                sub_type: "GYM", // or "GYM & Cardio",
-                sub_from: "3/11/2023",
-                sub_to: "3/2/2024",
-                sessions_count: "20", 
+                name: "",
+                mobile_no: "",
+                paid_amount: "",
+                un_paid_amount: "",
+                sub_type: "", // or "GYM & Cardio",
+                sub_from: "",
+                sub_to: "",
+                sessions_count: "", 
             },
             is_registered: false,
             qr_link: "https://www.fb.com/al0olo",
