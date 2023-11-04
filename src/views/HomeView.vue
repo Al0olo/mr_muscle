@@ -1,4 +1,5 @@
 <template>
+    <h1>A77777A</h1>
 </template>
 
 <style scoped>
@@ -9,4 +10,4 @@ export default {
     name: "Home",
     
 }
-    </script>
+</script>
