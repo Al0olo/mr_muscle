@@ -58,7 +58,7 @@
             <input name="" class="form-control" placeholder="Count Of sessions" type="text">
         </div> <!-- form-group// -->                              
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Create QR  </button>
+            <button @click="newUser" type="submit" class="btn btn-primary btn-block"> Create QR  </button>
         </div> <!-- form-group// -->                                                                
     </form>
     </article>
@@ -101,19 +101,48 @@
     }
     </style>
     
-    <script lang="ts">
-    import { v4 as uuidv4 } from 'uuid';
-    export default {
-        name: "create_user",
-        methods: {
-            newUser: function() {
-            // We use "commit" to call mutations in Vuex
-            this.$store.commit('addUser', {
-                id: uuidv4(),
+<script lang="ts">
+import { v4 as uuidv4 } from 'uuid';
+import  Store from '@/store';
+// import {$store} from "vuex";
+export default {
+    name: "create_user",
+    data: () => ({
+            form: {
                 name: "ali",
-                email: "alaa@gmail.com",
+                mobile_no: "01284177867",
+                paid_amount: "100",
+                un_paid_amount: "200",
+                sub_type: "GYM", // or "GYM & Cardio",
+                sub_from: "3/11/2023",
+                sub_to: "3/2/2024",
+                sessions_count: "20", 
+            }
+    }),
+    methods: {
+        newUser() {
+            let name = this.form.name;
+            let mobile_no= this.form.mobile_no;
+            let paid_amount= this.form.paid_amount;
+            let un_paid_amount= this.form.un_paid_amount;
+            let sub_type= this.form.sub_type;
+            let sub_from= this.form.sub_from;
+            let sub_to= this.form.sub_to;
+            let sessions_count= this.form.sessions_count;
+        // We use "commit" to call mutations in Vuex
+            Store.commit ('addUser', {
+                id: uuidv4(),
+                name: name,
+                mobile_no: mobile_no,
+                paid_amount: paid_amount,
+                un_paid_amount: un_paid_amount,
+                sub_type: sub_type,
+                sub_from: sub_from,
+                sub_to: sub_to,
+                sessions_count: sessions_count,
             })
+            console.log(JSON.stringify(Store.getters.users.length));
         }
-    }
-    }
-    </script>
+    },
+}
+</script>
