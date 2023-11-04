@@ -12,34 +12,34 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Full name" type="text">
+            <input v-model="form.name" class="form-control" placeholder="Full name" type="text">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Phone number" type="text">
+            <input v-model="form.mobile_no" class="form-control" placeholder="Phone number" type="text">
         </div> <!-- form-group// -->      
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Paid Amount" type="text">
+            <input v-model="form.paid_amount" class="form-control" placeholder="Paid Amount" type="text">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Un-Paid Amount" type="text">
+            <input v-model="form.un_paid_amount" class="form-control" placeholder="Un-Paid Amount" type="text">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
 		</div>
-		<select class="form-control">
-			<option disabled selected> Select Subscription type</option>
-			<option>GYM Only</option>
-            <option>GYM & Cardio</option>
+		<select v-model="form.sub_type" class="form-control">
+			<option  disabled selected> Select Subscription type</option>
+			<option value="GYM">GYM Only</option>
+            <option value="GYM & Cardio">GYM & Cardio</option>
 		</select>
 	    </div> <!-- form-group end.// -->
         <div class="form-group input-group">
@@ -47,19 +47,19 @@
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
 
-            <input id="from" name="" class="form-control" placeholder="Subscription From" type="date">
+            <input id="from" v-model="form.sub_from" class="form-control" placeholder="Subscription From" type="date">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Subscription To" type="date">
+            <input v-model="form.sub_to" class="form-control" placeholder="Subscription To" type="date">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input name="" class="form-control" placeholder="Count Of sessions" type="text">
+            <input v-model="form.sessions_count" class="form-control" placeholder="Count Of sessions" type="text">
         </div> <!-- form-group// -->                              
         <div class="form-group">
             <button @click="newUser" type="submit" class="btn btn-primary btn-block"> Create QR  </button>

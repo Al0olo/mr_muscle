@@ -1,122 +1,103 @@
-<template>
-
-<qrcode-stream @detect="onDetect"></qrcode-stream>
+<template >
 
 
+<div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Update Membership</h4>
+        <form @submit.prevent="">
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input :value="user.name" class="form-control" placeholder="Full name" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <input :value="user.mobile_no" class="form-control" placeholder="Phone number" type="text">
+        </div> <!-- form-group// -->      
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input :value="user.paid_amount" class="form-control" placeholder="Paid Amount" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <input :value="user.un_paid_amount" class="form-control" placeholder="Un-Paid Amount" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+		</div>
+		<select :value="user.sub_type" class="form-control">
+			<option  disabled selected> Select Subscription type</option>
+			<option value="GYM">GYM Only</option>
+            <option value="GYM & Cardio">GYM & Cardio</option>
+		</select>
+	    </div> <!-- form-group end.// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
 
-<div class="container d-flex justify-content-center align-items-center">
-     <div class="card">
-      <div class="upper">
-        <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid">
-        
-      </div>
-      <div class="user text-center">
-        <div class="profile">
-          <img src="https://i.imgur.com/JgYD2nQ.jpg" class="rounded-circle" width="80">
-          
-        </div>
-      </div>
-      <div class="mt-5 text-center">
-        <h4 class="mb-0">Benjamin Tims</h4>
-        <span class="text-muted d-block mb-2">Los Angles</span>
-        <button class="btn btn-primary btn-sm follow">Follow</button>
-        <div class="d-flex justify-content-between align-items-center mt-4 px-4">
-          <div class="stats">
-            <h6 class="mb-0">Followers</h6>
-            <span>8,797</span>
-          </div>
-          <div class="stats">
-            <h6 class="mb-0">Projects</h6>
-            <span>142</span>
-          </div>
-          <div class="stats">
-            <h6 class="mb-0">Ranks</h6>
-            <span>129</span>
-          </div>
-          
-        </div>
-        
-      </div>
-       
-     </div>
-   </div>
-</template>
+            <input id="from" :value="user.sub_from" class="form-control" placeholder="Subscription From" type="date">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input :value="user.sub_to" class="form-control" placeholder="Subscription To" type="date">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input :value="user.sessions_count" class="form-control" placeholder="Count Of sessions" type="text">
+        </div> <!-- form-group// -->                              
+        <div class="form-group">
+            <button @click="this.get_users" type="submit" class="btn btn-primary btn-block"> Get data  </button>
+        </div> <!-- form-group// -->                                                                
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    <!--container end.//-->
+    </template>
 
 <style scoped>
-body{
- background-color:#545454;
- font-family: "Poppins", sans-serif;
- font-weight: 300;
-}
-
-.container{
- height: 100vh;
-}
-
-.card{
-
- width: 380px;
- border: none;
- border-radius: 15px;
- padding: 8px;
- background-color: #fff;
- position: relative;
- height: 370px;
-}
-
-.upper{
-
- height: 100px;
-
-}
-
-.upper img{
-
- width: 100%;
- border-top-left-radius: 10px;
- border-top-right-radius: 10px;
-
-}
-
-.user{
- position: relative;
-}
-
-.profile img{
-
- 
- height: 80px;
- width: 80px;
- margin-top:2px;
-
-
-}
-
-.profile{
-
- position: absolute;
- top:-50px;
- left: 38%;
- height: 90px;
- width: 90px;
- border:3px solid #fff;
-
- border-radius: 50%;
-
-}
-
-.follow{
-
- border-radius: 15px;
- padding-left: 20px;
- padding-right: 20px;
- height: 35px;
-}
-
-.stats span{
-
- font-size: 29px;
-}
+.divider-text {
+        position: relative;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .divider-text span {
+        padding: 7px;
+        font-size: 12px;
+        position: relative;   
+        z-index: 2;
+    }
+    .divider-text:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        top: 55%;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .btn-facebook {
+        background-color: #405D9D;
+        color: #fff;
+    }
+    .btn-twitter {
+        background-color: #42AEEC;
+        color: #fff;
+    }
 </style>
 
 <script lang="ts">
@@ -129,15 +110,35 @@ import  Store from '@/store';
             return{
               users: [],
               onDetect:null,
+              user: [],
+              form: {
+                name: "ali",
+                mobile_no: "01284177867",
+                paid_amount: "100",
+                un_paid_amount: "200",
+                sub_type: "GYM", // or "GYM & Cardio",
+                sub_from: "3/11/2023",
+                sub_to: "3/2/2024",
+                sessions_count: "20", 
+            },
             }
         },
         methods:{
           get_users() {
-                this.users =(Store.getters.users);
-                console.log("get_users");
+                this.res =(JSON.parse(localStorage.getItem("store")));
+                console.log(this.res.users);
+                this.users = this.res.users;
+                for (let index = 0; index < this.users.length; index++) {
+                  if(this.users[index].id == this.$route.query.id){
+                    this.user = this.users[index];
+                  }
+                }
+                console.log(this.user);
+                return this.res;
             }
         },
         beforeCreate() {
+          // this.get_users();
         },
     }
 </script>

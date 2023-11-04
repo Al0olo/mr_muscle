@@ -17,8 +17,8 @@
         },
         methods:{
             get_users() {
-                this.users =(Store.getters.users);
-                // console.log(this.users[0].name);
+                this.res =(JSON.parse(localStorage.getItem("store")));
+                console.log(this.res.users);
             }
         },
         created() {
