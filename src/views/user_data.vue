@@ -1,4 +1,9 @@
 <template>
+
+<qrcode-stream @detect="onDetect"></qrcode-stream>
+
+
+
 <div class="container d-flex justify-content-center align-items-center">
      <div class="card">
       <div class="upper">
@@ -115,8 +120,24 @@ body{
 </style>
 
 <script lang="ts">
-export default {
-    name: "profile",
-    
-}
+import  Store from '@/store';
+    export default {
+        name: "users dashboard",
+        components: {
+        },
+        data() {
+            return{
+              users: [],
+              onDetect:null,
+            }
+        },
+        methods:{
+          get_users() {
+                this.users =(Store.getters.users);
+                console.log("get_users");
+            }
+        },
+        beforeCreate() {
+        },
+    }
 </script>

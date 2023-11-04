@@ -9,10 +9,12 @@ import MazIcon from "maz-ui/components/MazInput";
 import MazTextarea from "maz-ui/components/MazTextarea";
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput";
 import VueQrcode from "@chenfengyuan/vue-qrcode";
+import QrcodeStream from "vue-qrcode-reader";
 
 createApp(App)
 .use(store)
 .use(router)
+.use(QrcodeStream)
 .component("MazPhoneNumberInput", MazPhoneNumberInput)
 .component("MazInput", MazInput)
 .component("MazIcon", MazIcon)

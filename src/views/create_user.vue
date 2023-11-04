@@ -152,7 +152,7 @@ export default {
             })
             this.is_registered = true;
             this.qr_link = "https://mr-muscle.vercel.app/profile?id=" + id;
-            console.log(JSON.stringify(Store.getters.users.length));
+            console.log(Store.getters.users);
         }
     },
 }
