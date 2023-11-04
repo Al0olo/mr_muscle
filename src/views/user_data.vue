@@ -38,9 +38,6 @@
 </template>
 
 <style scoped>
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap"); */
-
-
 body{
  background-color:#545454;
  font-family: "Poppins", sans-serif;
