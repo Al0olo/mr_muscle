@@ -107,7 +107,8 @@ import  Store from '@/store';
 // import {$store} from "vuex";
 export default {
     name: "create_user",
-    data: () => ({
+    data() {
+        return {
             form: {
                 name: "ali",
                 mobile_no: "01284177867",
@@ -118,7 +119,8 @@ export default {
                 sub_to: "3/2/2024",
                 sessions_count: "20", 
             }
-    }),
+        }
+    },
     methods: {
         newUser() {
             let name = this.form.name;
