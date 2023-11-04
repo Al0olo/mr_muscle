@@ -20,19 +20,5 @@ module.exports = {
         },
       ],
     },
-
-    themeColor: "#4DBA87",
-    msTileColor: "#000000",
-    appleMobileWebAppCapable: "yes",
-    appleMobileWebAppStatusBarStyle: "black",
-    iconPaths: {
-      maskicon: null,
-      favicon32: "./favicon32.png",
-      favicon16: "./favicon16.png",
-      appleTouchIcon: null,
-      msTileImage: null,
-    },
-    // configure the workbox plugin
-    workboxPluginMode: "GenerateSW",
   },
 };
