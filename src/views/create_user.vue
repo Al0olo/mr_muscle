@@ -1,7 +1,11 @@
 <template>
 
     <div class="card bg-light">
-    <article class="card-body mx-auto" style="max-width: 400px;">
+        <div v-if="is_registered" class="qr-code-generated">
+            <p class="lead">Generated QR Code For Scan</p>
+            <vue-qrcode :value="qr_link"></vue-qrcode>
+        </div>
+    <article v-if="!is_registered" class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center">Create Membership</h4>
         <form @submit.prevent="">
         <div class="form-group input-group">
@@ -118,11 +122,14 @@ export default {
                 sub_from: "3/11/2023",
                 sub_to: "3/2/2024",
                 sessions_count: "20", 
-            }
+            },
+            is_registered: false,
+            qr_link: "https://www.fb.com/al0olo",
         }
     },
     methods: {
         newUser() {
+            let id = uuidv4();
             let name = this.form.name;
             let mobile_no= this.form.mobile_no;
             let paid_amount= this.form.paid_amount;
@@ -132,8 +139,8 @@ export default {
             let sub_to= this.form.sub_to;
             let sessions_count= this.form.sessions_count;
         // We use "commit" to call mutations in Vuex
-            Store.commit ('addUser', {
-                id: uuidv4(),
+            let user = Store.commit ('addUser', {
+                id: id,
                 name: name,
                 mobile_no: mobile_no,
                 paid_amount: paid_amount,
@@ -143,6 +150,8 @@ export default {
                 sub_to: sub_to,
                 sessions_count: sessions_count,
             })
+            this.is_registered = true;
+            this.qr_link = "https://mr-muscle.vercel.app/profile?id=" + id;
             console.log(JSON.stringify(Store.getters.users.length));
         }
     },
