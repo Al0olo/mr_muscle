@@ -102,8 +102,18 @@
     </style>
     
     <script lang="ts">
+    import { v4 as uuidv4 } from 'uuid';
     export default {
         name: "create_user",
-        
+        methods: {
+            newUser: function() {
+            // We use "commit" to call mutations in Vuex
+            this.$store.commit('addUser', {
+                id: uuidv4(),
+                name: "ali",
+                email: "alaa@gmail.com",
+            })
+        }
     }
-        </script>
+    }
+    </script>
