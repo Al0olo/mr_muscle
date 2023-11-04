@@ -1,5 +1,5 @@
 <template>
-    <h1>A77777A</h1>
+    <h1>MR MUSCLE</h1>
 </template>
 
 <style scoped>
